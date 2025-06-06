@@ -1,0 +1,5 @@
+Lunia Soluciones specializes in transforming businesses with cutting-edge artificial intelligence.
+Our core services include:
+1. Business Intelligence (BI) with AI: We leverage AI to extract actionable insights from your data, create predictive models, and automate reporting. This helps you make smarter, data-driven decisions.
+2. AI Consulting: Our expert consultants work with you to identify opportunities for AI integration, develop AI strategies, and roadmap your AI journey. We help you understand how AI can solve your specific business challenges.
+3. Full AI Structure Development: We design and build complete AI solutions, from data ingestion and processing pipelines to model development and deployment. This includes creating user-friendly front-end interfaces for interacting with AI systems. We cover the entire AI lifecycle.

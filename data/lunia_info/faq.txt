@@ -1,0 +1,11 @@
+Q: What kind of businesses do you work with?
+A: We work with a diverse range of businesses, from startups to established enterprises, across various industries that are looking to leverage AI for growth and efficiency.
+
+Q: How long does an AI project typically take?
+A: The timeline for an AI project can vary significantly based on its complexity, data availability, and specific requirements. We typically start with a pilot project or proof-of-concept which can take a few weeks, while full-scale implementations might take several months.
+
+Q: What makes Lunia Soluciones different?
+A: Our key differentiators are our deep expertise in both AI technology and business strategy, our commitment to delivering practical and impactful solutions, and our collaborative approach that ensures alignment with your goals. We also focus on building complete, end-to-end AI structures, including the front-end for usability.
+
+Q: Do I need to have a lot of data to work with you?
+A: While more data is often better for AI, we can work with varying amounts of data. Part of our initial consultation involves assessing your data landscape and identifying what's needed for your desired AI solution. Sometimes, we can also help with data acquisition strategies.
