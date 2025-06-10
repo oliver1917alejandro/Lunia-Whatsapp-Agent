@@ -123,7 +123,8 @@ class WhatsAppService:
             "options": default_options,
             "textMessage": {"text": message}
         }
-          for attempt in range(self.max_retries):
+
+        for attempt in range(self.max_retries):
             try:
                 session = await self._ensure_session()
                 async with session.post(url, headers=headers, json=payload) as response:
@@ -132,10 +133,14 @@ class WhatsAppService:
                         return True
                     else:
                         text = await response.text()
-                        logger.error(f"WhatsApp send failed ({response.status}): {text}")
-                        
+                        logger.error(
+                            f"WhatsApp send failed ({response.status}): {text}"
+                        )
+
                         # Retry on rate limit or server errors with jittered backoff
-                        backoff = self.retry_delay * (2 ** attempt) + random.uniform(0, 0.5)
+                        backoff = self.retry_delay * (2 ** attempt) + random.uniform(
+                            0, 0.5
+                        )
                         if response.status in (429,) or response.status >= 500:
                             await asyncio.sleep(backoff)
                             continue
@@ -357,17 +362,20 @@ class WhatsAppService:
             if not parsed_url.scheme:
                 logger.error(f"Invalid audio URL: {audio_url}")
                 return None
-              session = await self._ensure_session()
-            async with session.get(audio_url, timeout=aiohttp.ClientTimeout(total=30)) as response:
-                    if response.status != 200:
-                        logger.error(f"Failed to download audio: {response.status}")
-                        return None
-                    
-                    # Create temporary file
-                    with tempfile.NamedTemporaryFile(delete=False, suffix='.ogg') as temp_file:
-                        async for chunk in response.content.iter_chunked(8192):
-                            temp_file.write(chunk)
-                        return temp_file.name
+
+            session = await self._ensure_session()
+            async with session.get(
+                audio_url, timeout=aiohttp.ClientTimeout(total=30)
+            ) as response:
+                if response.status != 200:
+                    logger.error(f"Failed to download audio: {response.status}")
+                    return None
+
+                # Create temporary file
+                with tempfile.NamedTemporaryFile(delete=False, suffix=".ogg") as temp_file:
+                    async for chunk in response.content.iter_chunked(8192):
+                        temp_file.write(chunk)
+                    return temp_file.name
                         
         except Exception as e:
             logger.error(f"Error downloading audio file: {e}")
@@ -432,7 +440,8 @@ class WhatsAppService:
             return None
 
         url = f"{self.api_url}/instance/status/{self.instance_name}"
-        headers = {"apikey": self.api_key}        try:
+        headers = {"apikey": self.api_key}
+        try:
             session = await self._ensure_session()
             async with session.get(url, headers=headers) as response:
                 if response.status == 200:
@@ -456,7 +465,8 @@ class WhatsAppService:
         payload = {
             "number": phone_number,
             "presence": "composing"
-        }        try:
+        }
+        try:
             session = await self._ensure_session()
             async with session.post(url, headers=headers, json=payload) as response:
                 return response.status == 200
